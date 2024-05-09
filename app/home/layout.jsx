@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const FavoriteTeams = () => {
   return (
-    <div className="flex overflow-auto snap-x snap-mandatory">
+    <div className="flex overflow-auto snap-x snap-mandatory md:justify-evenly">
       {Children.toArray(
-        TEAMS.map((team) => (
+        TEAMS?.map((team) => (
           <Link href={`/team/${team.code}`}>
             <Team {...team} />
           </Link>
