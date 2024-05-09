@@ -8,11 +8,12 @@ import { getTodaysFixtures } from "@/operations/todaysFixtures";
 
 async function HomePage() {
   const todaysFixtures = await getTodaysFixtures();
+
   return (
-    <div className="p-4 pt-4 flex flex-col">
+    <div className="p-4 pt-4 flex flex-col gap-5 overflow-auto max-h-[calc(100dvh-270px)] md:grid md:grid-flow-row md:grid-cols-3 md:gap-5">
       {todaysFixtures?.length ? (
         Children.toArray(
-          todaysFixtures.map((fixture) => <FixtureCard {...fixture} />)
+          todaysFixtures?.map((fixture) => <FixtureCard {...fixture} />)
         )
       ) : (
         <div className="m-auto flex flex-col gap-7 items-center pt-8">
@@ -23,7 +24,9 @@ async function HomePage() {
             alt="no-matches-today"
             className="w-40 h-40"
           />
-          <p className="text-center">Your favorite teams aren&apos;t playing any games today.</p>
+          <p className="text-center">
+            Your favorite teams aren&apos;t playing any games today.
+          </p>
         </div>
       )}
     </div>
