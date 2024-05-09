@@ -29,18 +29,18 @@ export const scrapData = async (teamSlug = "") => {
           'article[class^="SimpleMatchCard_simpleMatchCard__"]'
         );
 
-    return Array.from(fixturesList).map((fixture) => {
+    return Array.from(fixturesList)?.map((fixture) => {
       const [homeTeam, awayTeam] = Array.from(
         fixture.firstChild.querySelectorAll(
           'span[class^="SimpleMatchCardTeam_simpleMatchCardTeam__name__"]'
         )
-      ).map((element) => element?.innerText);
+      )?.map((element) => element?.innerText);
 
       const [homeTeamCrest, awayTeamCrest] = Array.from(
         fixture.firstChild.querySelectorAll(
           'img[class^="ImageWithSets_of-image__img__"]'
         )
-      ).map((element) => element?.attributes?.["src"]?.value);
+      )?.map((element) => element?.attributes?.["src"]?.value);
 
       const time =
         fixture.querySelectorAll("time")?.[0]?.attributes?.["datetime"]?.value;
