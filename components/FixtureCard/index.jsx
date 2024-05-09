@@ -3,7 +3,9 @@ import Image from "next/image";
 const Team = ({ crest = "", name = "" }) => (
   <div className="flex items-center gap-4">
     <Image src={crest} width={26} height={26} alt={name} />
-    <p className="text-sm text-ellipsis whitespace-nowrap overflow-hidden">{name}</p>
+    <p className="text-sm text-ellipsis whitespace-nowrap overflow-hidden md:text-xs">
+      {name}
+    </p>
   </div>
 );
 
@@ -20,10 +22,12 @@ function FixtureCard(props) {
         <Team {...home_team} />
         <Team {...away_team} />
       </div>
-      <div className="flex flex-col items-center gap-1 text-xs">
-        <p>{localDate}</p>
-        <p>{localTime}</p>
-      </div>
+      {time ? (
+        <div className="flex flex-col items-center gap-1 text-xs md:text-[10px]">
+          <p>{localDate}</p>
+          <p>{localTime}</p>
+        </div>
+      ) : <p className="text-xs">Live</p>}
     </div>
   );
 }
