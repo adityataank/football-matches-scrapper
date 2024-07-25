@@ -1,4 +1,4 @@
-import { scrapData } from "@/utils/scrapper";
+import { scrapData } from "@/utils/scraper";
 
 export const getTeamsFixtures = async (teamSlug = "") => {
   try {
@@ -10,6 +10,6 @@ export const getTeamsFixtures = async (teamSlug = "") => {
     });
     return thisMonthFixtures;
   } catch (error) {
-    console.log(`Scrapping error for ${teamSlug}: `, error);
+    console.log(`Scraping error for ${teamSlug}: `, error);
   }
 };
