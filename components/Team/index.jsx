@@ -13,7 +13,7 @@ function Team(props) {
           className="object-fit aspect-square"
         />
       </div>
-      <p className="text-center text-sm md:text-xs">{name}</p>
+      <p className="text-center text-sm md:text-base">{name}</p>
     </div>
   );
 }

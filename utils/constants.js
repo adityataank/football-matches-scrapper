@@ -15,14 +15,14 @@ export const TEAMS = [
     crest: "/team-crest/manchester-united.svg",
   },
   {
-    name: "Manchester City",
-    code: "manchester-city-209",
-    crest: "/team-crest/manchester-city.svg",
-  },
-  {
     name: "Arsenal",
     code: "arsenal-2",
     crest: "/team-crest/arsenal.svg",
+  },
+  {
+    name: "Manchester City",
+    code: "manchester-city-209",
+    crest: "/team-crest/manchester-city.svg",
   },
   {
     name: "Bayern Munich",
@@ -35,3 +35,18 @@ export const TEAMS = [
     crest: "/team-crest/bayer-leverkusen.svg",
   },
 ];
+
+export const MONTH_MAPPING = {
+  1: "January",
+  2: "February",
+  3: "March",
+  4: "April",
+  5: "May",
+  6: "June",
+  7: "July",
+  8: "August",
+  9: "September",
+  10: "October",
+  11: "November",
+  12: "December",
+};

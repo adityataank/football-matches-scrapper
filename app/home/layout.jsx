@@ -5,10 +5,13 @@ import Link from "next/link";
 
 const FavoriteTeams = () => {
   return (
-    <div className="flex overflow-auto snap-x snap-mandatory md:justify-evenly">
+    <div className="flex overflow-auto snap-x snap-mandatory md:justify-evenly md:pt-1">
       {Children.toArray(
         TEAMS?.map((team) => (
-          <Link href={`/team/${team.code}`}>
+          <Link
+            href={`/team/${team.code}`}
+            className="transition-transform active:scale-90 md:hover:-translate-y-1"
+          >
             <Team {...team} />
           </Link>
         ))
@@ -19,9 +22,11 @@ const FavoriteTeams = () => {
 
 function HomeLayout({ children }) {
   return (
-    <div className="pt-20">
+    <div className="pt-20 md:pt-24">
       <FavoriteTeams />
-      <h6 className="font-medium text-lg p-4">Today&apos;s fixtures</h6>
+      <h6 className="font-medium text-lg p-4 md:text-xl">
+        Today&apos;s fixtures
+      </h6>
       {children}
     </div>
   );

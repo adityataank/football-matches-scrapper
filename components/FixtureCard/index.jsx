@@ -2,8 +2,14 @@ import Image from "next/image";
 
 const Team = ({ crest = "", name = "" }) => (
   <div className="flex items-center gap-4">
-    <Image src={crest} width={26} height={26} alt={name} />
-    <p className="text-sm text-ellipsis whitespace-nowrap overflow-hidden md:text-xs">
+    <Image
+      src={crest}
+      width={26}
+      height={26}
+      alt={name}
+      className="md:w-7 md:h-7"
+    />
+    <p className="text-sm text-ellipsis whitespace-nowrap overflow-hidden md:text-base">
       {name}
     </p>
   </div>
@@ -14,7 +20,7 @@ function FixtureCard(props) {
 
   const dateObj = new Date(time);
   const localTime = dateObj.toLocaleTimeString();
-  const localDate = dateObj.toDateString();
+  const localDate = dateObj.toDateString().slice(0, -4); // slicing the year
 
   return (
     <div className="flex items-center justify-between bg-[#2b2b2b] p-3 rounded-md">
@@ -23,11 +29,16 @@ function FixtureCard(props) {
         <Team {...away_team} />
       </div>
       {time ? (
-        <div className="flex flex-col items-center gap-1 text-xs md:text-[10px]">
+        <div className="flex flex-col items-center gap-1 text-xs md:text-sm">
           <p>{localDate}</p>
           <p>{localTime}</p>
         </div>
-      ) : <p className="text-xs">Live</p>}
+      ) : (
+        <p className="text-xs flex items-center gap-2 md:text-sm">
+          Live{" "}
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+        </p>
+      )}
     </div>
   );
 }
