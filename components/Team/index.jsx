@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 function Team(props) {
-  const { name = "", crest = "" } = props;
+  const { name = "", crest = "" } = props ?? {};
   return (
     <div className="min-w-32 flex flex-col items-center gap-3 min-h-28 snap-center">
       <div className="w-16 h-16 grid place-items-center">
