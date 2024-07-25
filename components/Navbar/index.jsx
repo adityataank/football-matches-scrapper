@@ -13,19 +13,18 @@ function Navbar() {
 
   const isHomePage = pathname.startsWith("/home");
 
-  const { name, crest } = isHomePage
-    ? {}
-    : TEAMS.find((team) => team.code === teamSlug);
+  const { name, crest } =
+    (isHomePage ? {} : TEAMS.find((team) => team.code === teamSlug)) ?? {};
 
   return (
     <header className="h-16 w-screen fixed top-0 bg-header-bg flex items-center gap-2 px-6 backdrop-filter backdrop-blur-sm md:h-20">
       {!isHomePage && <BackButton />}
       {isHomePage ? (
         <h3 className="font-semibold text-lg md:text-xl">Football Fixtures</h3>
-      ) : (
+      ) : name ? (
         <div className="flex items-center gap-2 justify-between w-full h-full py-1">
           <h4 className="font-extrabold text-lg md:text-xl">
-            {name.toUpperCase()}
+            {name?.toUpperCase()}
           </h4>
           <Image
             src={crest}
@@ -35,7 +34,7 @@ function Navbar() {
             className="w-auto h-[inherit]"
           />
         </div>
-      )}
+      ) : null}
     </header>
   );
 }
