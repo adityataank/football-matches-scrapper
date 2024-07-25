@@ -1,4 +1,4 @@
-import { scrapData } from "@/utils/scrapper";
+import { scrapData } from "@/utils/scraper";
 
 import { TEAMS } from "@/utils/constants";
 
@@ -15,6 +15,6 @@ export const getTodaysFixtures = async () => {
     });
     return filteredList;
   } catch (error) {
-    console.log("Scrapping error", error);
+    console.log("Scraping error", error);
   }
 };

@@ -1,19 +1,17 @@
 import Image from "next/image";
 
-import { TEAMS } from "@/utils/constants";
+import { MONTH_MAPPING } from "@/utils/constants";
 
-function TeamFixtureLayout({ params: { teamSlug }, children }) {
-  const currentMonth = new Date().toDateString().split(" ").at(1);
-  const { name, crest } = TEAMS.find((team) => team.code === teamSlug);
+function TeamFixtureLayout({ children }) {
+  const currentMonth = new Date().getMonth() + 1;
   return (
-    <div className="p-4 pt-20">
-      <div className="flex items-center gap-2">
-        <Image src={crest} width={30} height={30} alt={name} />
-        <h4 className="font-extrabold text-lg">{name.toUpperCase()}</h4>
-      </div>
-      <h4 className="font-medium text-lg my-5">
+    <div className="p-4 pt-16 md:pt-20">
+      <h4 className="font-medium text-lg my-5 md:text-xl">
         Fixtures for{" "}
-        <b className="font-extrabold">{currentMonth.toUpperCase()}</b> month
+        <b className="font-extrabold">
+          {MONTH_MAPPING[currentMonth].toUpperCase()}
+        </b>{" "}
+        month
       </h4>
       {children}
     </div>

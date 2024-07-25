@@ -1,2 +1,2 @@
-# football-matches-scrapper
-A football matches scrapping application where we can find the fixtures of our favorite football teams.
+# football-matches-scraper
+A football matches scraping application where we can find the fixtures of our favorite football teams.
