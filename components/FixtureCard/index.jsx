@@ -1,4 +1,5 @@
 import Image from "next/image";
+import DateTime from "./DateTime";
 
 const Team = ({ crest = "", name = "" }) => (
   <div className="flex items-center gap-4">
@@ -18,10 +19,6 @@ const Team = ({ crest = "", name = "" }) => (
 function FixtureCard(props) {
   const { home_team = {}, away_team = {}, time = "" } = props;
 
-  const dateObj = new Date(time);
-  const localTime = dateObj.toLocaleTimeString();
-  const localDate = dateObj.toDateString().slice(0, -4); // slicing the year
-
   return (
     <div className="flex items-center justify-between bg-[#2b2b2b] p-3 rounded-md">
       <div className="flex flex-col gap-4 max-w-[67%]">
@@ -29,10 +26,7 @@ function FixtureCard(props) {
         <Team {...away_team} />
       </div>
       {time ? (
-        <div className="flex flex-col items-center gap-1 text-xs md:text-sm">
-          <p>{localDate}</p>
-          <p>{localTime}</p>
-        </div>
+        <DateTime datetime={time} />
       ) : (
         <p className="text-xs flex items-center gap-2 md:text-sm">
           Live{" "}
