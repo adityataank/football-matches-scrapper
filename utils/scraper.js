@@ -5,7 +5,7 @@ export const scrapData = async (teamSlug = "") => {
     ? `https://onefootball.com/en/team/${teamSlug}/fixtures`
     : "https://onefootball.com/en/matches";
 
-  const response = await fetch(ROOT_URL, { method: "get" }).then(async (res) =>
+  const response = await fetch(ROOT_URL, { method: "get", cache: "no-cache" }).then(async (res) =>
     res.text()
   );
 
