@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
 
@@ -15,6 +16,11 @@ function Navbar() {
 
   const { name, crest } =
     (isHomePage ? {} : TEAMS.find((team) => team.code === teamSlug)) ?? {};
+
+  useEffect(() => {
+    const dateTimeString = new Date().toISOString();
+    document.cookie = `dateTime=${dateTimeString}`;
+  }, []);
 
   return (
     <header className="h-16 w-screen fixed top-0 bg-header-bg flex items-center gap-2 px-6 backdrop-filter backdrop-blur-sm md:h-20">
