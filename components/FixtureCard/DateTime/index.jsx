@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 const DateTime = ({ datetime = "" }) => {
   const dateObj = new Date(datetime);
