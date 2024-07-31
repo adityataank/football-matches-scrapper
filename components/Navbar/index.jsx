@@ -18,7 +18,7 @@ function Navbar() {
     (isHomePage ? {} : TEAMS.find((team) => team.code === teamSlug)) ?? {};
 
   useEffect(() => {
-    const dateTimeString = new Date().toISOString();
+    const dateTimeString = new Date().toLocaleString();
     document.cookie = `dateTime=${dateTimeString}`;
   }, []);
 

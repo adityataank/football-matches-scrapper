@@ -4,8 +4,7 @@ import { cookies } from "next/headers";
 export const getTeamsFixtures = async (teamSlug = "") => {
   try {
     const fixtures = await scrapData(teamSlug);
-    const clientTimeStamp = cookies().get("dateTime").value;
-    console.log("debug clientTimeStamp", clientTimeStamp, cookies().getAll());
+    const clientTimeStamp = cookies()?.get("dateTime")?.value ?? "";
     const thisMonthFixtures = fixtures.filter((fixture) => {
       let currentMonth;
       if (clientTimeStamp) {
@@ -16,7 +15,6 @@ export const getTeamsFixtures = async (teamSlug = "") => {
       const fixtureMonth = new Date(fixture.time).getMonth();
       return fixtureMonth <= currentMonth;
     });
-    console.log('debug fixtures', fixtures);
     return thisMonthFixtures;
   } catch (error) {
     console.log(`Scraping error for ${teamSlug}: `, error);
