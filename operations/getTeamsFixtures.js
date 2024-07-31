@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 export const getTeamsFixtures = async (teamSlug = "") => {
   try {
     const fixtures = await scrapData(teamSlug);
-    const clientTimeStamp = cookies().get("dateTime").value;
+    const clientTimeStamp = cookies()?.get("dateTime")?.value ?? "";
     const thisMonthFixtures = fixtures.filter((fixture) => {
       let currentMonth;
       if (clientTimeStamp) {
