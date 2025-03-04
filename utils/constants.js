@@ -55,3 +55,5 @@ export const MONTH_MAPPING = {
   11: "November",
   12: "December",
 };
+
+export const [DEVELOPMENT, PRODUCTION] = ["development", "production"];
