@@ -7,6 +7,7 @@ import { usePathname, useParams } from "next/navigation";
 import BackButton from "../BackButton";
 
 import { TEAMS } from "@/utils/constants";
+import { Analytics } from "@/utils/analytics";
 
 function Navbar() {
   const pathname = usePathname();
@@ -18,8 +19,10 @@ function Navbar() {
     (isHomePage ? {} : TEAMS.find((team) => team.code === teamSlug)) ?? {};
 
   useEffect(() => {
-    const dateTimeString = new Date().toISOString();
+    const dateTimeString = new Date().toLocaleString();
     document.cookie = `dateTime=${dateTimeString}`;
+
+    Analytics.track("page-visit", { page_name: "home page" });
   }, []);
 
   return (

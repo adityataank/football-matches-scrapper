@@ -20,6 +20,11 @@ export const TEAMS = [
     crest: "/team-crest/arsenal.svg",
   },
   {
+    name: "Liverpool FC",
+    code: "liverpool-fc-18",
+    crest: "/team-crest/liverpool.svg",
+  },
+  {
     name: "Manchester City",
     code: "manchester-city-209",
     crest: "/team-crest/manchester-city.svg",
@@ -50,3 +55,5 @@ export const MONTH_MAPPING = {
   11: "November",
   12: "December",
 };
+
+export const [DEVELOPMENT, PRODUCTION] = ["development", "production"];
