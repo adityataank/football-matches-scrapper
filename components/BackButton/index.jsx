@@ -3,9 +3,19 @@ import Link from "next/link";
 
 import BackIcon from "@/public/arrow-right.svg";
 
+import { Analytics } from "@/utils/analytics";
+
 function BackButton() {
+  const handleClick = () => {
+    Analytics.track("back-click");
+  };
+
   return (
-    <Link href={"/home"} className="transition-transform hover:-translate-x-1">
+    <Link
+      href={"/home"}
+      onClick={handleClick}
+      className="transition-transform hover:-translate-x-1"
+    >
       <Image
         src={BackIcon}
         width={20}

@@ -12,6 +12,12 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    STAGE: process.env.STAGE,
+    EVENTLYTICS_API_KEY: process.env.EVENTLYTICS_API_KEY,
+    PROJECT_TOKEN: process.env.PROJECT_TOKEN,
+    USER_TOKEN: process.env.USER_TOKEN,
+  },
 };
 
 export default nextConfig;
